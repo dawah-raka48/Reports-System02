@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>لوحة الموظف | التقارير الأسبوعية</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+<link rel="stylesheet" href="css/variables.css"><link rel="stylesheet" href="css/theme.css"><link rel="stylesheet" href="css/animations.css"><link rel="stylesheet" href="css/employee.css"><link rel="stylesheet" href="css/dialog.css">
+</head>
+<body>
+<div class="employee-container">
+<header class="employee-header">
+<button id="logoutBtn" class="logout-btn" title="تسجيل الخروج"><i class="fa-solid fa-right-from-bracket"></i></button>
+<img src="assets/logo.png" class="logo" alt="شعار الجمعية">
+<div class="employee-info"><h2 id="employeeName">اسم الموظف</h2><span id="employeeDepartment">القسم</span></div>
+<div class="employee-date"><div id="weekNumber">الأسبوع --</div><div id="todayDate">--</div></div>
+</header>
+<section class="employee-welcome">
+<div><h1>مرحبًا بك 👋</h1><p>من هنا ترفع تقريرك الأسبوعي وتراجع تقاريرك السابقة بسهولة.</p></div>
+<div id="statusBadge" class="welcome-badge"><i class="fa-solid fa-circle-check"></i><span>جاهز</span></div>
+</section>
+<main>
+<div id="uploadNotice" class="upload-notice" style="display:none"></div>
+<section id="successCard" class="card success-card" style="display:none">
+<div class="success-icon"><i class="fa-solid fa-circle-check"></i></div><h2>تم استلام تقريرك بنجاح</h2><p>تم حفظ التقرير الأسبوعي وإرساله للإدارة.</p><small>سيظهر التقرير ضمن تقاريرك السابقة ويمكنك فتحه من نفس الصفحة.</small>
+</section>
+<section id="uploadCard" class="card upload-card">
+<h3><i class="fa-solid fa-file-arrow-up"></i> رفع التقرير الأسبوعي</h3>
+<p class="upload-subtitle">اختر تقريرك بصيغة PDF. سيتم التحقق تلقائيًا من موعد الرفع ومن وجود تقرير لهذا الأسبوع.</p>
+<input id="pdfFile" type="file" accept="application/pdf,.pdf" hidden>
+<label class="upload-box" for="pdfFile">
+<div class="pdf-icon"><i class="fa-solid fa-file-pdf"></i></div><h3>اختر ملف التقرير</h3><p>اضغط هنا لاختيار ملف PDF من جهازك</p><small>الحد الأقصى يعتمد على إعدادات النظام</small>
+</label>
+<div id="selectedFile" class="selected-file">لم يتم اختيار أي ملف</div>
+<button id="uploadBtn"><span id="uploadText"><i class="fa-solid fa-cloud-arrow-up"></i> رفع التقرير</span></button>
+</section>
+<section class="card reports-card">
+<div class="reports-head"><div><h3><i class="fa-solid fa-folder-open"></i> تقاريري السابقة</h3><div style="font-size:9px;color:#8996a5">كل التقارير الخاصة بحسابك فقط</div></div><div id="reportsCount" class="reports-count">0</div></div>
+<div id="reportsTable"><div class="empty">جاري تحميل التقارير...</div></div>
+</section>
+</main>
+</div>
+<div id="employeePdfModal" aria-hidden="true">
+<div class="employee-pdf-window" role="dialog" aria-modal="true" aria-label="عرض التقرير">
+<div class="employee-pdf-head"><div class="employee-pdf-title"><i class="fa-solid fa-file-pdf"></i><div><strong id="employeePdfTitle">التقرير الأسبوعي</strong><span>عرض التقرير داخل النظام</span></div></div><div class="employee-pdf-actions"><button id="employeePdfExternal" class="employee-pdf-btn" title="فتح في تبويب جديد"><i class="fa-solid fa-up-right-from-square"></i></button><button id="employeePdfClose" class="employee-pdf-btn" title="إغلاق"><i class="fa-solid fa-xmark"></i></button></div></div>
+<div class="employee-pdf-body"><div id="employeePdfLoading" class="employee-pdf-loading"><i class="fa-solid fa-spinner fa-spin fa-2x"></i><span>جاري فتح التقرير...</span></div><iframe id="employeePdfFrame" class="employee-pdf-frame" title="التقرير الأسبوعي"></iframe></div>
+</div></div>
+<script src="js/config.js"></script><script src="js/api.js"></script><script src="js/dialog.js"></script><script src="js/employee.js"></script><script src="js/ui.js"></script>
+</body></html>
