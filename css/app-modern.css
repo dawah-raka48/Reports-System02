@@ -1,0 +1,39 @@
+/* Reports System — Modern UI layer. Presentation only: no API/data behavior changes. */
+:root{--ui-primary:#174b7a;--ui-primary-2:#0b3558;--ui-accent:#d9a441;--ui-ink:#142235;--ui-muted:#718096;--ui-line:#e5ebf2;--ui-bg:#f3f6fa;--ui-card:rgba(255,255,255,.92);--ui-shadow:0 14px 45px rgba(20,45,70,.08);--ui-shadow-hover:0 20px 55px rgba(20,45,70,.13)}
+html{background:var(--ui-bg)}body{font-family:"Cairo",sans-serif;-webkit-font-smoothing:antialiased}
+/* Shared dashboard polish */
+.dashboard{background:radial-gradient(circle at 90% 0%,rgba(217,164,65,.07),transparent 28%),radial-gradient(circle at 5% 20%,rgba(23,75,122,.06),transparent 30%),linear-gradient(180deg,#f8fafc,#eef3f7)!important}
+.dashboard .header{border-color:rgba(255,255,255,.75)!important;box-shadow:0 16px 45px rgba(23,75,122,.09)!important}
+.dashboard .menu-card{position:relative;overflow:hidden;border-radius:18px!important}
+.dashboard .menu-card:after{content:"";position:absolute;inset:auto auto -35px -35px;width:90px;height:90px;border-radius:50%;background:rgba(23,75,122,.045);pointer-events:none}
+.dashboard #content{border-radius:22px!important;box-shadow:0 14px 45px rgba(20,45,70,.065)!important}
+.dashboard .section-title{padding-bottom:15px;border-bottom:1px solid #edf1f5}
+.dashboard .table-container{box-shadow:0 7px 22px rgba(20,45,70,.035)}
+.dashboard table tbody tr{transition:background .18s ease,transform .18s ease}
+.dashboard table tbody tr:hover{transform:translateX(-1px)}
+.dashboard .modal-card{border:1px solid rgba(255,255,255,.8);box-shadow:0 30px 90px rgba(8,25,42,.2)!important}
+/* Employee */
+.employee-container{position:relative}
+.employee-container:before{content:"";position:fixed;z-index:-1;width:520px;height:520px;border-radius:50%;top:-250px;left:-180px;background:rgba(23,75,122,.055);filter:blur(2px);pointer-events:none}
+.employee-header{box-shadow:0 18px 55px rgba(23,75,122,.16)!important;border:1px solid rgba(255,255,255,.15)!important}
+.employee-welcome,.employee-stats .stat-card,.employee-container .card{box-shadow:0 10px 35px rgba(20,45,70,.055)!important}
+.employee-welcome{border-color:#e7edf3!important}
+.employee-container .card{border-color:#e3eaf1!important}
+.employee-container .upload-box{background:linear-gradient(145deg,#fbfdff,#f5f9fc)!important}
+.employee-container .upload-box:hover{box-shadow:inset 0 0 0 1px rgba(23,75,122,.06),0 10px 28px rgba(23,75,122,.07)}
+.employee-container #uploadBtn{background:linear-gradient(135deg,#0a3153,#1b5b8f)!important}
+.employee-container .reports-tools input:focus,.employee-container .reports-tools select:focus{box-shadow:0 0 0 4px rgba(23,75,122,.08)!important}
+.employee-container .report-item{box-shadow:0 4px 16px rgba(20,45,70,.025)}
+.employee-container .report-item:hover{box-shadow:0 9px 24px rgba(20,45,70,.065)!important}
+/* Login */
+.login-wrapper{background:radial-gradient(circle at 15% 15%,rgba(217,164,65,.13),transparent 24%),linear-gradient(135deg,#06182b,#0d3457 55%,#174b7a)!important}
+.login-wrapper:before{opacity:.65}
+.login-brand .brand-content{animation:modernBrandIn .65s ease both}
+.login-card{box-shadow:-35px 0 100px rgba(0,0,0,.2)!important}
+.login-card .logo{transition:transform .25s ease,box-shadow .25s ease}.login-card .logo:hover{transform:translateY(-3px) rotate(-2deg);box-shadow:0 18px 38px rgba(23,75,122,.18)}
+.input-group input{transition:border-color .2s,box-shadow .2s,transform .2s!important}.input-group input:focus{transform:translateY(-1px)}
+.login-btn{position:relative;overflow:hidden}.login-btn:after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.16) 50%,transparent 70%);transform:translateX(-120%);transition:transform .7s}.login-btn:hover:after{transform:translateX(120%)}
+@keyframes modernBrandIn{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+/* Better touch targets and compact mobile navigation */
+@media(max-width:700px){.dashboard .header-left button{width:40px;height:40px}.dashboard .menu-card{min-height:62px}.dashboard #content{min-height:500px}.employee-container .card{box-shadow:0 7px 25px rgba(20,45,70,.045)!important}.login-card{box-shadow:none!important}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
